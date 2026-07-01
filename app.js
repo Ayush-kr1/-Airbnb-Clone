@@ -25,6 +25,10 @@ const listingRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1f77cb (Updated project)
 const dburl= process.env.ATLASDB_URL;
 
 main()
@@ -36,7 +40,11 @@ main()
     });
 
 async function main() {
+<<<<<<< HEAD
     await mongoose.connect(dburl);
+=======
+     await mongoose.connect(dburl);
+>>>>>>> b1f77cb (Updated project)
 }     
 
 app.set("view engine", "ejs");
@@ -54,7 +62,16 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
+<<<<<<< HEAD
 const sessionOptions = {
+=======
+store.on("error", () => {
+    console.log("ERROR in MONGO SESSION STORE", err);
+});
+
+const sessionOptions = {
+    store,
+>>>>>>> b1f77cb (Updated project)
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
@@ -64,6 +81,7 @@ const sessionOptions = {
         httpOnly: true,
     },
 };
+
 
 
 
